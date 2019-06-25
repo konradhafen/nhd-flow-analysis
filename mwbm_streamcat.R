@@ -11,6 +11,7 @@ indat <- na.omit(indat)
 
 # Functions ---------------------------------------------------------------
 
+library(verification)
 class.sum <- function(truth, predicted)
 {
   xt<-table(truth,round(predicted+0.000001))
@@ -59,6 +60,18 @@ for (i in 6:ncol(lrdat.all))
   out.dat <- rbind(out.dat, row)
 }
 out.dat
+
+
+# Correlations ------------------------------------------------------------
+
+#Elevation, precipitation
+cor(indat$ElevCat, indat$Precip8110Ws)
+#Elevation, BFI
+cor(indat$ElevCat, indat$BFIWs)
+#Elevation, watershed area
+cor(indat$ElevCat, indat$WsAreaSqKm)
+
+
 
 # Exploratory Logistic Regression -----------------------------------------
 
